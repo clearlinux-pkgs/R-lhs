@@ -4,17 +4,25 @@
 #
 Name     : R-lhs
 Version  : 1.0.1
-Release  : 8
+Release  : 9
 URL      : https://cran.r-project.org/src/contrib/lhs_1.0.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/lhs_1.0.1.tar.gz
 Summary  : Latin Hypercube Samples
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: R-lhs-lib = %{version}-%{release}
-Requires: R-Rcpp
-Requires: R-rlang
+Requires: R-assertthat
+Requires: R-cli
+Requires: R-markdown
+Requires: R-mime
+Requires: R-withr
 BuildRequires : R-Rcpp
+BuildRequires : R-assertthat
+BuildRequires : R-cli
+BuildRequires : R-markdown
+BuildRequires : R-mime
 BuildRequires : R-rlang
+BuildRequires : R-withr
 BuildRequires : buildreq-R
 
 %description
@@ -37,10 +45,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549202595
+export SOURCE_DATE_EPOCH=1552835287
 
 %install
-export SOURCE_DATE_EPOCH=1549202595
+export SOURCE_DATE_EPOCH=1552835287
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -76,8 +84,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library lhs|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  lhs || :
 
 
 %files
@@ -112,10 +119,20 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/lhs/help/paths.rds
 /usr/lib64/R/library/lhs/html/00Index.html
 /usr/lib64/R/library/lhs/html/R.css
-/usr/lib64/R/library/lhs/libs/symbols.rds
+/usr/lib64/R/library/lhs/tests/testthat.R
+/usr/lib64/R/library/lhs/tests/testthat/helper-lhs.R
+/usr/lib64/R/library/lhs/tests/testthat/test-augmentlhs.R
+/usr/lib64/R/library/lhs/tests/testthat/test-create_oalhs.R
+/usr/lib64/R/library/lhs/tests/testthat/test-createoa.R
+/usr/lib64/R/library/lhs/tests/testthat/test-geneticlhs.R
+/usr/lib64/R/library/lhs/tests/testthat/test-improvedlhs.r
+/usr/lib64/R/library/lhs/tests/testthat/test-maximinlhs.R
+/usr/lib64/R/library/lhs/tests/testthat/test-oa_to_oalhs.R
+/usr/lib64/R/library/lhs/tests/testthat/test-optaugmentlhs.R
+/usr/lib64/R/library/lhs/tests/testthat/test-optimumlhs.R
+/usr/lib64/R/library/lhs/tests/testthat/test-optseededlhs.R
+/usr/lib64/R/library/lhs/tests/testthat/test-randomlhs.r
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/R/library/lhs/libs/lhs.so
-/usr/lib64/R/library/lhs/libs/lhs.so.avx2
-/usr/lib64/R/library/lhs/libs/lhs.so.avx512
