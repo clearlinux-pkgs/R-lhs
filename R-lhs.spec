@@ -4,7 +4,7 @@
 #
 Name     : R-lhs
 Version  : 1.0.1
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/lhs_1.0.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/lhs_1.0.1.tar.gz
 Summary  : Latin Hypercube Samples
@@ -14,6 +14,7 @@ Requires: R-lhs-lib = %{version}-%{release}
 Requires: R-Rcpp
 BuildRequires : R-Rcpp
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
 # lhs
@@ -35,10 +36,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1569360463
+export SOURCE_DATE_EPOCH=1571854974
 
 %install
-export SOURCE_DATE_EPOCH=1569360463
+export SOURCE_DATE_EPOCH=1571854974
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
