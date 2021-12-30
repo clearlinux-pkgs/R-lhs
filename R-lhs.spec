@@ -4,7 +4,7 @@
 #
 Name     : R-lhs
 Version  : 1.1.3
-Release  : 35
+Release  : 36
 URL      : https://cran.r-project.org/src/contrib/lhs_1.1.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/lhs_1.1.3.tar.gz
 Summary  : Latin Hypercube Samples
